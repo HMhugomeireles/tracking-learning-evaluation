@@ -37,6 +37,27 @@ const initialConfig: Array<FormField> = [
             minLength: undefined,
             pattern: undefined
         }
+    },
+    {
+        component: {
+            type: "select",
+            styles: "",
+            atr: undefined,
+            subComponent: [
+                { tag: "option", atrValue: "right", label: "Right"},
+                { tag: "option", atrValue: "left", label: "Left"}
+            ]
+        },
+        type: "radio",
+        id: uuid.v4(),
+        label: "What you want to do?",
+        placeHolder: undefined,
+        rules: {
+            require: true,
+            maxLength: undefined,
+            minLength: undefined,
+            pattern: undefined
+        }
     }
 ]
 
