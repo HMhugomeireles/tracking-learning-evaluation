@@ -1,8 +1,9 @@
-import FormGenerator from './components/form-generator/FormGenerator'
+//import FormGenerator from './components/form-generator/FormGenerator'
 import FormGenOnUserInteractions from './components/form-gen-on-user-interactions/FormGenOnUserInteractions';
 import './App.css';
 
-import { mockFormGeneratorData } from './mocks/form-generator'
+//import { mockFormGeneratorData } from './mocks/form-generator'
+import { MockFormGeneratorOnFly } from './mocks/form-gen-on-fly'
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       /> */}
 
       <FormGenOnUserInteractions 
+        initialConfig={MockFormGeneratorOnFly.initialConfig}
         flows={[]}
-        initialConfig={[]}
       />
     </div>
   );

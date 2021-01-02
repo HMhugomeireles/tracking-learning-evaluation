@@ -16,7 +16,7 @@ export interface FormField {
         styles: String,
         subComponent: SelectSubComponent[] | undefined
     }
-    type: "text" | "number" | "password" | "email" | "checkbox" | "date" | "radio",
+    type: "text" | "number" | "password" | "email" | "checkbox" | "date" | "radio" | undefined,
     id: String,
     label: String,
     placeHolder: String | undefined,

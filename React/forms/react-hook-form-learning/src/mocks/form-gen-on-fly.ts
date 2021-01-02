@@ -48,7 +48,7 @@ const initialConfig: Array<FormField> = [
                 { tag: "option", atrValue: "left", label: "Left"}
             ]
         },
-        type: "radio",
+        type: undefined,
         id: uuid.v4(),
         label: "What you want to do?",
         placeHolder: undefined,
