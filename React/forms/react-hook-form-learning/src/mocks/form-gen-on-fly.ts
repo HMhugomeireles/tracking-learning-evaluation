@@ -4,6 +4,8 @@ import { FormField, FormGeneratorOnFlyProps } from '../components/form-gen-on-us
 const initialConfig: Array<FormField> = [
     {
         component: {
+            id: "firstName",
+            name: "firstName",
             type: "input",
             styles: "",
             atr: undefined,
@@ -22,6 +24,8 @@ const initialConfig: Array<FormField> = [
     },
     {
         component: {
+            id: "lastName",
+            name: "lastName",
             type: "input",
             styles: "",
             atr: undefined,
@@ -40,6 +44,8 @@ const initialConfig: Array<FormField> = [
     },
     {
         component: {
+            id: "path",
+            name: "path",
             type: "select",
             styles: "",
             atr: undefined,

@@ -1,33 +1,52 @@
-//import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { FormGeneratorOnFlyProps, FormField } from './types'
 
-const ElementStrategy = {
-    input: <input />,
-    select: <select></select>,
-    textarea: <textarea></textarea>
-}
-interface GetElementConfigProps {
-    element: JSX.Element,
-    initialConfig: FormField
-}
-
-function getElement(initialConfig: FormField): GetElementConfigProps {
-    const element = ElementStrategy[initialConfig.component.type]
-
-    return {element, initialConfig}
-}
-
-function getElementConfig({element, initialConfig}: GetElementConfigProps): JSX.Element {
-    if (element.type === "input") {
-        return <input type={initialConfig.type}  />
+// Need check the types of register of react-hook-form
+function getElementConfig(initialConfig: FormField, eleRegister: any): JSX.Element {
+    // TODO need refactoring this
+    if (initialConfig.component.type === "input") {
+        if (initialConfig.type === "checkbox" || initialConfig.type === "radio") {
+            return (
+                <label>
+                    <input
+                        id={initialConfig.component.id.toString()}
+                        name={initialConfig.component.name.toString()} 
+                        type={initialConfig.type} 
+                        //{...initialConfig.component.atr?.map((atrProp) => [atrProp.atr: atrProp.value )} 
+                        ref={eleRegister}
+                    />    
+                    {initialConfig.label}
+                </label>
+            )
+        }
+        return (
+            <>
+                <label>{initialConfig.label}</label>
+                <input 
+                    id={initialConfig.component.id.toString()}
+                    name={initialConfig.component.name.toString()} 
+                    type={initialConfig.type}  
+                    ref={eleRegister}
+                />
+            </>
+        )
     }
 
-    if (element.type === "select") {
-        return <select>
-            {initialConfig.component.subComponent?.map((option) => (
-                    <option value={option.atrValue.toString()}>{option.label}</option>
-            ))}
-        </select>
+    if (initialConfig.component.type === "select") {
+        return (
+            <>
+                <label>{initialConfig.label}</label>
+                <select
+                    id={initialConfig.component.id.toString()}
+                    name={initialConfig.component.name.toString()}
+                    ref={eleRegister}
+                >
+                    {initialConfig.component.subComponent?.map((option) => (
+                            <option key={option.atrValue.toString()} value={option.atrValue.toString()}>{option.label}</option>
+                    ))}
+                </select>
+            </>
+        )
     }
 
     return <textarea></textarea>
@@ -35,20 +54,24 @@ function getElementConfig({element, initialConfig}: GetElementConfigProps): JSX.
 
 
 function FormGenOnUserInteractions({ initialConfig, flows }: FormGeneratorOnFlyProps) {
-    //const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, watch } = useForm()
+    const isRight = watch('path')
 
-    // function onUserSubmit(data: any, event: any) {
-    //     console.log(data)
-    // }
+    function onUserSubmit(data: any, event: any) {
+        console.log(data)
+    }
 
     return (
         <div className="container">
-            {initialConfig.map((elementConfig: FormField) => (
-                <div key={elementConfig.id.toString()}>
-                    <label>{elementConfig.label}</label>
-                    {getElementConfig(getElement(elementConfig))}
-                </div>
-            ))}
+            <form onSubmit={handleSubmit(onUserSubmit)}>
+                {initialConfig.map((elementConfig: FormField) => (
+                    <div key={elementConfig.id.toString()}>
+                        {getElementConfig(elementConfig, register)}
+                    </div>
+                ))}
+                {isRight && console.log("#", isRight)}
+                <button type="submit">Send</button>
+            </form>
         </div>
     )
 }

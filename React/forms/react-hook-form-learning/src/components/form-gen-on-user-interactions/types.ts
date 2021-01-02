@@ -11,6 +11,8 @@ interface SelectSubComponent {
 
 export interface FormField {
     component: {
+        id: String,
+        name: String,
         type: "input" | "select" | "textarea",
         atr: { atr: String, value: String | undefined }[] | undefined,
         styles: String,
@@ -27,6 +29,8 @@ export interface FormField {
         pattern: RuleType | undefined
     }
 }
+
+
 
 export interface FormGeneratorOnFlyProps {
     initialConfig: FormField[]
