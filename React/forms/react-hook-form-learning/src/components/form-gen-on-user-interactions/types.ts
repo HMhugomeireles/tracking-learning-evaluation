@@ -30,9 +30,15 @@ export interface FormField {
     }
 }
 
-
+interface Flow {
+    fieldWatch: {
+        name: String,
+        condition: any, // need to change this type
+    },
+    componentsToShow: FormField[]
+}
 
 export interface FormGeneratorOnFlyProps {
     initialConfig: FormField[]
-    flows: any[]
+    flows: Flow[]
 } 
