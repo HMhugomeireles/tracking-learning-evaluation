@@ -2,8 +2,6 @@
 
 Multi repositories with things I learn and what to learning. This will tracking the content I learn.
 
-This project will follow the monorepo architecture.
-
 ---
 
 ## What learn
@@ -12,6 +10,8 @@ In where I will track the content I will learn and current learning.
 
 ### What I have learned
 
+    - [ ] react-hooks-forms
+        - [ ] generate forms from json
 
 ---
 
@@ -24,6 +24,7 @@ In where I will track the content I will learn and current learning.
     - [ ] mobx
     - [ ] react-query
     - [ ] react-hooks-forms
+
 - [ ] Typescript
 - [ ] Nodejs
 - [ ] Testing
