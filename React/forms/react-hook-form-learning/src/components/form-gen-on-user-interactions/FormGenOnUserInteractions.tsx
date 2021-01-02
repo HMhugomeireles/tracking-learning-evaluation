@@ -55,7 +55,8 @@ function getElementConfig(initialConfig: FormField, eleRegister: any): JSX.Eleme
 
 function FormGenOnUserInteractions({ initialConfig, flows }: FormGeneratorOnFlyProps) {
     const { register, handleSubmit, watch } = useForm()
-    const isRight = watch('path')
+    const eleWatch = watch(`${flows[0].fieldWatch.name}`)
+    const e = flows[0];
 
     function onUserSubmit(data: any, event: any) {
         console.log(data)
@@ -69,7 +70,11 @@ function FormGenOnUserInteractions({ initialConfig, flows }: FormGeneratorOnFlyP
                         {getElementConfig(elementConfig, register)}
                     </div>
                 ))}
-                {isRight && console.log("#", isRight)}
+                <div>
+                    {eleWatch === flows[0].fieldWatch.value && (
+                        <>1</>
+                    )}
+                </div>
                 <button type="submit">Send</button>
             </form>
         </div>

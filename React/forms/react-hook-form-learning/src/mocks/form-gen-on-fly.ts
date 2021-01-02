@@ -1,5 +1,5 @@
 import * as uuid from 'uuid'
-import { FormField, FormGeneratorOnFlyProps } from '../components/form-gen-on-user-interactions/types'
+import { Flow, FormField, FormGeneratorOnFlyProps } from '../components/form-gen-on-user-interactions/types'
 
 const initialConfig: Array<FormField> = [
     {
@@ -67,10 +67,41 @@ const initialConfig: Array<FormField> = [
     }
 ]
 
-
+const flows: Array<Flow> = [
+    {
+        fieldWatch: {
+            name: "path",
+            value: "right",
+            condition: "equal"
+        },
+        componentsToShow: {
+            component: {
+                id: "person-like",
+                name: "person-like",
+                type: "select",
+                styles: "",
+                atr: undefined,
+                subComponent: [
+                    { tag: "option", atrValue: "design", label: "Design"},
+                    { tag: "option", atrValue: "programing", label: "Programing"}
+                ]
+            },
+            type: undefined,
+            id: uuid.v4(),
+            label: "What do you like?",
+            placeHolder: undefined,
+            rules: {
+                require: true,
+                maxLength: undefined,
+                minLength: undefined,
+                pattern: undefined
+            }
+        }
+    }
+]
 
 
 export const MockFormGeneratorOnFly: FormGeneratorOnFlyProps = {
     initialConfig,
-    flows: []
+    flows
 }

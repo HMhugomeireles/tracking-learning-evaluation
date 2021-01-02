@@ -14,7 +14,7 @@ function App() {
 
       <FormGenOnUserInteractions 
         initialConfig={MockFormGeneratorOnFly.initialConfig}
-        flows={[]}
+        flows={MockFormGeneratorOnFly.flows}
       />
     </div>
   );
