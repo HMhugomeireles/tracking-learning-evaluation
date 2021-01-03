@@ -43,3 +43,11 @@ export interface FormGeneratorOnFlyProps {
     initialConfig: FormField[]
     flows: Flow[]
 } 
+
+export interface FormResult {
+    firstName: String,
+    lastName: String,
+    path: String,
+    language: String
+}
+

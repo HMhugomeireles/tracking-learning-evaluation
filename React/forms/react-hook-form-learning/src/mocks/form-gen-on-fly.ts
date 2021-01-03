@@ -50,13 +50,13 @@ const initialConfig: Array<FormField> = [
             styles: "",
             atr: undefined,
             subComponent: [
-                { tag: "option", atrValue: "right", label: "Right"},
-                { tag: "option", atrValue: "left", label: "Left"}
+                { tag: "option", atrValue: "frontend", label: "Frontend"},
+                { tag: "option", atrValue: "backend", label: "Backend"}
             ]
         },
         type: undefined,
         id: uuid.v4(),
-        label: "What you want to do?",
+        label: "What do you want prefer?",
         placeHolder: undefined,
         rules: {
             require: true,
@@ -71,24 +71,54 @@ const flows: Array<Flow> = [
     {
         fieldWatch: {
             name: "path",
-            value: "right",
+            value: "frontend",
             condition: "equal"
         },
         componentsToShow: {
             component: {
-                id: "person-like",
-                name: "person-like",
+                id: "language",
+                name: "language",
                 type: "select",
                 styles: "",
                 atr: undefined,
                 subComponent: [
-                    { tag: "option", atrValue: "design", label: "Design"},
-                    { tag: "option", atrValue: "programing", label: "Programing"}
+                    { tag: "option", atrValue: "react", label: "React"},
+                    { tag: "option", atrValue: "angular", label: "Angular"}
                 ]
             },
             type: undefined,
             id: uuid.v4(),
-            label: "What do you like?",
+            label: "What framework/library do you like use?",
+            placeHolder: undefined,
+            rules: {
+                require: true,
+                maxLength: undefined,
+                minLength: undefined,
+                pattern: undefined
+            }
+        }
+    },
+    {
+        fieldWatch: {
+            name: "path",
+            value: "left",
+            condition: "equal"
+        },
+        componentsToShow: {
+            component: {
+                id: "language",
+                name: "language",
+                type: "select",
+                styles: "",
+                atr: undefined,
+                subComponent: [
+                    { tag: "option", atrValue: "javascript", label: "Javascript"},
+                    { tag: "option", atrValue: "python", label: "Python"}
+                ]
+            },
+            type: undefined,
+            id: uuid.v4(),
+            label: "What language do you like use in backend?",
             placeHolder: undefined,
             rules: {
                 require: true,
