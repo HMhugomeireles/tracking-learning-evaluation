@@ -2,32 +2,20 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormGeneratorOnFlyProps, FormField, FormResult } from './types'
 
+
 // Need check the types of register of react-hook-form
 function getElementConfig(initialConfig: FormField, eleRegister: any): JSX.Element {
     // TODO need refactoring this
     if (initialConfig.component.type === "input") {
-        if (initialConfig.type === "checkbox" || initialConfig.type === "radio") {
-            return (
-                <label>
-                    <input
-                        id={initialConfig.component.id.toString()}
-                        name={initialConfig.component.name.toString()} 
-                        type={initialConfig.type} 
-                        //{...initialConfig.component.atr?.map((atrProp) => [atrProp.atr: atrProp.value )} 
-                        ref={eleRegister}
-                    />    
-                    {initialConfig.label}
-                </label>
-            )
-        }
         return (
             <>
-                <label>{initialConfig.label}</label>
+                <label htmlFor={initialConfig.component.name.toString()}>{initialConfig.label}</label>
                 <input 
+                    //{...initialConfig.component.atr?.map((atrProp) => [atrProp.atr: atrProp.value )} 
                     id={initialConfig.component.id.toString()}
                     name={initialConfig.component.name.toString()} 
                     type={initialConfig.type}  
-                    ref={eleRegister}
+                    ref={eleRegister({...initialConfig.rules})}
                 />
             </>
         )
@@ -40,7 +28,7 @@ function getElementConfig(initialConfig: FormField, eleRegister: any): JSX.Eleme
                 <select
                     id={initialConfig.component.id.toString()}
                     name={initialConfig.component.name.toString()}
-                    ref={eleRegister}
+                    ref={eleRegister({...initialConfig.rules})}
                     defaultValue=" -- select an option -- "
                 >
                     <option key={initialConfig.component.id.toString() + "default"} value=" -- select an option -- "> -- select an option -- </option>
