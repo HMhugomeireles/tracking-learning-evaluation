@@ -5,10 +5,12 @@ import { Physics } from 'use-cannon';
 import Ground from './components/Ground';
 import Camera from './components/Camera';
 import Player from './components/Player';
-//import { Cube, useCubeStore } from './Cube';
+import { Cube, useCubeStore } from './components/Cube';
 
 
 function App() {
+  const cubes = useCubeStore(state => state.cubes)
+  
   return (
     <Canvas shadowMap sRGB gl={{ alpha: false }}>
       <Camera />
@@ -18,6 +20,10 @@ function App() {
       <Physics>
         <Ground />
         <Player />
+        <Cube position={[0, 0.5, -10]} />
+        {
+          cubes.map(cube => cube)
+        }
       </Physics>
     </Canvas>
   );
