@@ -10,13 +10,13 @@ In where I will track the content I will learn and current learning.
 
 ### What I have learned
 
-    - [ ] react-hooks-forms
-        - [x] generate forms from json
-        - [x] generate forms from json with flows
-    - [ ] Testing
-        - [ ] Javascript testing - course Kent C. Dodds
-            - [x] testing fundamentals
-            - [ ] mocking fundamentals
+- [ ] react-hooks-forms
+    - [x] generate forms from json
+    - [x] generate forms from json with flows
+- [ ] Testing
+    - [ ] Javascript testing - course Kent C. Dodds
+        - [x] testing fundamentals
+        - [ ] mocking fundamentals
 
 
 ---
