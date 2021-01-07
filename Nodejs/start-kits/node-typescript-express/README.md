@@ -1,4 +1,4 @@
 # Nodejs Typescript Express
 
 ### Resources:
-[Tutorial - nodejs typescript express](https://catalins.tech/how-to-use-typescript-in-a-nodejs-and-express-project)
+[Tutorial - nodejs typescript express](https://khalilstemmler.com/blogs/typescript/node-starter-project/)
