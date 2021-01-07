@@ -1,11 +1,11 @@
-import express from 'express'
+import express from 'express';
 
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send('Hi!')
-})
+  res.send('Hi!');
+});
 
 app.listen(3000, () => {
-    console.log('The application is listening on port 3000!')
-})
+  console.log('The application is listening on port 3000!');
+});
