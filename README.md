@@ -17,8 +17,12 @@ In where I will track the content I will learn and current learning.
     - [ ] Javascript testing - course Kent C. Dodds
         - [x] testing fundamentals
         - [ ] mocking fundamentals
-
-
+- [ ] Create nodejs start kit
+    - [x] configurations ts
+    - [x] configurations eslint
+    - [x] configurations tslint
+    - [x] configurations nodemon
+    - [x] configurations prettier
 ---
 
 ### Back log 
