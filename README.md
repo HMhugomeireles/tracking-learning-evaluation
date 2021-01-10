@@ -23,6 +23,7 @@ In where I will track the content I will learn and current learning.
     - [x] configurations tslint
     - [x] configurations nodemon
     - [x] configurations prettier
+    - [x] configurations jest
 ---
 
 ### Back log 
