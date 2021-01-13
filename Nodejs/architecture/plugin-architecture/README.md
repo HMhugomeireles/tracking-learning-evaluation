@@ -4,6 +4,12 @@ Wikipedia:
 
 [Plugin computing](https://en.wikipedia.org/wiki/Plug-in_%28computing%29)
 
+What is a Plugin?
+
+The concept of plugin is module then solves specific problem and is easy to connect and use. Ok but this is to must abstract, let me simplify.
+I'm use one thing for write this this is use like a plugin, I'm talk about the key board you just plug and play.
+In terms of nerd the in nodejs you use npm or yarn for install modules that use this pattern.
+
 My explication:
 
 This architecture consist in have the main module, normally call Core, where this module will have the business rules, data access, security, logger.
@@ -28,4 +34,4 @@ Negative:
 ### Resources
 
 [Article - Medium](https://medium.com/omarelgabrys-blog/plug-in-architecture-dec207291800)
-[](http://blog.nuclex-games.com/tutorials/cxx/plugin-architecture/)
+[Article - Advantages](http://blog.nuclex-games.com/tutorials/cxx/plugin-architecture/)
