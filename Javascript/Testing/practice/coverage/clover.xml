@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1611083653122" clover="3.2.0">
-  <project timestamp="1611083653122" name="All files">
+<coverage generated="1611092306761" clover="3.2.0">
+  <project timestamp="1611092306761" name="All files">
     <metrics statements="32" coveredstatements="31" conditionals="14" coveredconditionals="13" methods="3" coveredmethods="3" elements="49" coveredelements="47" complexity="0" loc="32" ncloc="32" packages="1" files="2" classes="2"/>
     <file name="index.ts" path="/home/meireles/development/personal/studies/learning-repo/Javascript/Testing/practice/src/index.ts">
       <metrics statements="26" coveredstatements="25" conditionals="14" coveredconditionals="13" methods="1" coveredmethods="1"/>
@@ -8,28 +8,28 @@
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="10" type="cond" truecount="2" falsecount="0"/>
       <line num="5" count="1" type="stmt"/>
-      <line num="18" count="9" type="stmt"/>
-      <line num="26" count="9" type="stmt"/>
-      <line num="30" count="9" type="stmt"/>
-      <line num="31" count="9" type="stmt"/>
-      <line num="32" count="9" type="stmt"/>
-      <line num="33" count="9" type="stmt"/>
-      <line num="34" count="74" type="cond" truecount="4" falsecount="0"/>
-      <line num="35" count="17" type="stmt"/>
-      <line num="37" count="74" type="cond" truecount="2" falsecount="0"/>
-      <line num="38" count="18" type="stmt"/>
-      <line num="39" count="18" type="stmt"/>
-      <line num="41" count="56" type="cond" truecount="4" falsecount="0"/>
-      <line num="42" count="39" type="stmt"/>
-      <line num="46" count="9" type="stmt"/>
-      <line num="47" count="9" type="stmt"/>
-      <line num="49" count="9" type="stmt"/>
-      <line num="51" count="9" type="cond" truecount="1" falsecount="1"/>
-      <line num="52" count="9" type="stmt"/>
-      <line num="55" count="0" type="stmt"/>
-      <line num="72" count="1" type="stmt"/>
-      <line num="73" count="1" type="stmt"/>
-      <line num="74" count="1" type="stmt"/>
+      <line num="8" count="9" type="stmt"/>
+      <line num="16" count="9" type="stmt"/>
+      <line num="20" count="9" type="stmt"/>
+      <line num="21" count="9" type="stmt"/>
+      <line num="22" count="9" type="stmt"/>
+      <line num="24" count="9" type="stmt"/>
+      <line num="25" count="74" type="cond" truecount="4" falsecount="0"/>
+      <line num="26" count="17" type="stmt"/>
+      <line num="28" count="74" type="cond" truecount="2" falsecount="0"/>
+      <line num="29" count="18" type="stmt"/>
+      <line num="30" count="18" type="stmt"/>
+      <line num="32" count="56" type="cond" truecount="4" falsecount="0"/>
+      <line num="33" count="39" type="stmt"/>
+      <line num="37" count="9" type="stmt"/>
+      <line num="38" count="9" type="stmt"/>
+      <line num="40" count="9" type="stmt"/>
+      <line num="42" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="43" count="9" type="stmt"/>
+      <line num="46" count="0" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="51" count="1" type="stmt"/>
+      <line num="52" count="1" type="stmt"/>
     </file>
     <file name="util.ts" path="/home/meireles/development/personal/studies/learning-repo/Javascript/Testing/practice/src/util.ts">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>

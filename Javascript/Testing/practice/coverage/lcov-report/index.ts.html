@@ -108,45 +108,13 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,6 +130,7 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">74x</span>
 <span class="cline-any cline-yes">17x</span>
@@ -188,19 +157,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import { Shared, INSTANCES } from './util'
@@ -209,16 +165,6 @@ export function parseValue(value: any): number {
     if (typeof value !== 'string') {
         return value;
     }
-&nbsp;
-    // const DECIMAL_PLACES_LENGTH = 2;
-    // const DEFAULT_CURRENCY_REGEX_BY_INSTANCE = {
-    //     'default': /([^0-9.])/g,
-    //     'vi-VN': /[^0-9]/g
-    // };
-    // const instance = Shared.getCountryAppInstanceCode();
-&nbsp;
-    // const REGEX = DEFAULT_CURRENCY_REGEX_BY_INSTANCE[instance]
-    //     || DEFAULT_CURRENCY_REGEX_BY_INSTANCE.default;
 &nbsp;
     const MONEY_SYMBOLS = {
         'hk-HK-IFWD-ECOM': 'HK$',
@@ -233,8 +179,9 @@ export function parseValue(value: any): number {
         .split('').reverse();
 &nbsp;
     let decimalPart = [];
-    let domainPart = [];
+    let intPart = [];
     let isDecimalPart = true;
+    
     for (let number = 0; number &lt; reverseValue.length; number++) {
         if (reverseValue[number] === ',' || reverseValue[number] === '.') {
             isDecimalPart = false;
@@ -244,12 +191,12 @@ export function parseValue(value: any): number {
             continue;
         }
         if (reverseValue[number] !== '.' &amp;&amp; reverseValue[number] !== ',') {
-            domainPart.push(reverseValue[number])
+            intPart.push(reverseValue[number])
         }
     }
 &nbsp;
     const decimalPartValue = decimalPart.reverse().join('')
-    const domainPartValue = domainPart.reverse().join('')
+    const domainPartValue = intPart.reverse().join('')
 &nbsp;
     const finalValue = parseFloat(`${domainPartValue}.${decimalPartValue}`)
 &nbsp;
@@ -258,19 +205,6 @@ export function parseValue(value: any): number {
     }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return Math.round(finalValue)</span>
-&nbsp;
-    // // Fix necessary for mobile devices (DESKTOP =&gt; HK1,000.57) (MOBILE =&gt; HK1000,57)
-    // const valueAfterComma = value.substring(value.indexOf(',') + 1);
-&nbsp;
-    // const parsed = (valueAfterComma.length &lt;= DECIMAL_PLACES_LENGTH)
-    //     ? parseFloat(value.replace(/./g, '').replace(',', '.').replace(/([^0-9.])/g, ''))
-    //     : parseFloat(value.replace(REGEX, ''));
-&nbsp;
-    // if (Shared.appInstanceIsHKIFWD()) {
-    //     return parsed;
-    // }
-&nbsp;
-    //return Math.round(parsed);
     
 }
 &nbsp;
@@ -283,7 +217,7 @@ parseValue("HK$145.12")</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jan 19 2021 19:14:13 GMT+0000 (Western European Standard Time)
+                at Tue Jan 19 2021 21:38:26 GMT+0000 (Western European Standard Time)
             </div>
         </div>
         <script src="prettify.js"></script>
