@@ -17,20 +17,20 @@ export function parseValue(value: any): number {
         .replace(`${MONEY_SYMBOLS[Shared.getCountryAppInstanceCode()]}`, '')
         .split('').reverse();
 
-    let decimalPart = [];
-    let intPart = [];
+    const decimalPart = [];
+    const intPart = [];
     let isDecimalPart = true;
     
-    for (let number = 0; number < reverseValue.length; number++) {
-        if (reverseValue[number] === ',' || reverseValue[number] === '.') {
+    for (let number of reverseValue) {
+        if (number === ',' || number === '.') {
             isDecimalPart = false;
         }
         if (isDecimalPart) {
-            decimalPart.push(reverseValue[number])
+            decimalPart.push(number)
             continue;
         }
-        if (reverseValue[number] !== '.' && reverseValue[number] !== ',') {
-            intPart.push(reverseValue[number])
+        if (number !== '.' && number !== ',') {
+            intPart.push(number)
         }
     }
 
