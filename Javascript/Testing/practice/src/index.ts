@@ -5,17 +5,8 @@ export function parseValue(value: any): number {
         return value;
     }
 
-    const MONEY_SYMBOLS = {
-        'hk-HK-IFWD-ECOM': 'HK$',
-        'hk-HK-IBP': 'HK$',
-        'th-TH': '฿',
-        'vi-VN': '₫',
-        'id-ID': 'Rp'
-    }
-
-    const reverseValue = value
-        .replace(`${MONEY_SYMBOLS[Shared.getCountryAppInstanceCode()]}`, '')
-        .split('').reverse();
+    // keep the numbers and dot and comma
+    const reverseValue = value.replace(/[^0-9.,]/g, '').split('').reverse();
 
     const decimalPart = [];
     const intPart = [];
@@ -26,16 +17,16 @@ export function parseValue(value: any): number {
             isDecimalPart = false;
         }
         if (isDecimalPart) {
-            decimalPart.push(number)
+            decimalPart.unshift(number)
             continue;
         }
         if (number !== '.' && number !== ',') {
-            intPart.push(number)
+            intPart.unshift(number)
         }
     }
 
-    const decimalPartValue = decimalPart.reverse().join('')
-    const domainPartValue = intPart.reverse().join('')
+    const decimalPartValue = decimalPart.join('')
+    const domainPartValue = intPart.join('')
 
     const finalValue = parseFloat(`${domainPartValue}.${decimalPartValue}`)
 
@@ -43,7 +34,7 @@ export function parseValue(value: any): number {
         return finalValue
     }
 
-    return Math.round(finalValue)
+    return Number((finalValue).toFixed(2))
     
 }
 
