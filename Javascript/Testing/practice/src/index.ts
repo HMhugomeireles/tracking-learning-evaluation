@@ -5,8 +5,10 @@ export function parseValue(value: any): number {
         return value;
     }
 
-    // keep the numbers and dot and comma
-    const reverseValue = value.replace(/[^0-9.,]/g, '').split('').reverse();
+    const reverseValue = value
+        .replace(/[^0-9.,]/g, '') // keep the numbers and dot and comma
+        .split('')
+        .reverse();
 
     const decimalPart = [];
     const intPart = [];
