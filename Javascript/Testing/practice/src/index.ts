@@ -5,6 +5,10 @@ export function parseValue(value: any): number {
         return value;
     }
 
+    if (!value.includes('.') && !value.includes(',')) {
+        return parseFloat(value.replace(/[^0-9.,]/g, ''))
+    }
+
     const reverseValue = value
         .replace(/[^0-9.,]/g, '') // keep the numbers and dot and comma
         .split('')
