@@ -187,5 +187,25 @@ describe('Function parseValue', () => {
             expect(result).toBe(95000)
             expect(typeof result).not.toBe(typeof value)
         })
+        test('[3] - on Rp145003987 should receive a number 145003987', () => {
+            const value = "Rp145003987"
+    
+            Mock_getCountryAppInstanceCode.mockReturnValue('vi-VN')
+            Mock_appInstanceIsHKIFWD.mockReturnValue(false)
+            const result = parseValue(value)
+            
+            expect(result).toBe(145003987)
+            expect(typeof result).not.toBe(typeof value)
+        })
+        test('[3] - on Rp1000000000 should receive a number 1000000000', () => {
+            const value = "Rp1000000000"
+    
+            Mock_getCountryAppInstanceCode.mockReturnValue('vi-VN')
+            Mock_appInstanceIsHKIFWD.mockReturnValue(false)
+            const result = parseValue(value)
+            
+            expect(result).toBe(1000000000)
+            expect(typeof result).not.toBe(typeof value)
+        })
     })
 })
