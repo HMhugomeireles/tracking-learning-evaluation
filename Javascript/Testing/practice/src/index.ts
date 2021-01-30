@@ -1,12 +1,16 @@
-import { Shared, INSTANCES } from './util'
+import { Shared, setCurrentInstance } from './util'
 
 export function parseValue(value: any): number {
     if (typeof value !== 'string') {
         return value;
     }
 
-    if (!value.includes('.') && !value.includes(',')) {
-        return parseFloat(value.replace(/[^0-9.,]/g, ''))
+    if (Shared.appInstanceIsVNIBP() || Shared.appInstanceIsID()) {
+        const regexStr = Shared.getCurrencySymbol();
+        console.log({ value });
+        const regex = new RegExp(`([^a-zA-Z${regexStr}]+)`, 'g');
+        const realValue = value.match(regex)[0].replace(/,/g, '').replace(/\./g, '');
+        return parseFloat(realValue);
     }
 
     const reverseValue = value
@@ -43,6 +47,8 @@ export function parseValue(value: any): number {
     return Number((finalValue).toFixed(2))
     
 }
+
+//setCurrentInstance("hk-HK-IFWD-ECOM")
 
 parseValue("HK$1,801.53")
 parseValue("HK$1.801,53")
