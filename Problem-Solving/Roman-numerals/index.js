@@ -7,31 +7,91 @@
 
  */
 
-
-function decoderRomanNumerals(romanNumeral) {
-    return null;
+const romanTable = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
 }
 
-decoderRomanNumerals('II') // 2
-decoderRomanNumerals('IV') // 4
-decoderRomanNumerals('XX') // 20
 
-decoderRomanNumerals('LX') // 60
-decoderRomanNumerals('XL') // 40
-decoderRomanNumerals('ii') // ERROR 'Not roman numeral'
+function decoderRomanNumerals(romanNumeral) {
+    const romanSplit = romanNumeral.split('')
+    
+    function validation() {
+        if (typeof romanNumeral !== 'string') {
+            return new Error('Type is not String');
+        }
 
-decoderRomanNumerals('CCC') // 300
-decoderRomanNumerals('D') // 500
-decoderRomanNumerals('M') // 1000
+        const keys = Object.keys(romanTable);
+        
+        for (const letter of romanSplit) {
+            for (const key of keys) {
+                if (letter !== key) {
+                    return new Error('Not roman numeral');
+                }
+            }
+        }
+    }
 
-decoderRomanNumerals('MCXIV') // 1114
-decoderRomanNumerals('MMCMXCIII') // 2993
+    try {
+        validation();
 
-Symbol     Value 
-I          1     
-V          5     
-X          10    
-L          50    
-C          100   
-D          500   
-M          1000 
+        let accumulator = 0
+        for (let position = 0; position < romanSplit.length; position++) {
+            const firstVale = romanTable[romanSplit[position]]
+
+            if (position === romanSplit.length - 1) {
+                accumulator += firstVale
+                break;
+            }
+
+            const secondVale = romanTable[romanSplit[position + 1]]
+
+            if (firstVale === secondVale) {
+                accumulator += firstVale
+            }
+
+            if (firstVale < secondVale) {
+                accumulator -= secondVale - firstVale
+            }
+
+
+            if (firstVale > secondVale) {
+                accumulator = secondVale + firstVale
+            }
+
+
+        }
+        
+        return accumulator;
+    } catch (error) {
+        return new Error('Not roman numeral');
+    }
+
+}
+
+console.log("[II] - ", decoderRomanNumerals('II')) // 2
+console.log("[IV] - ", decoderRomanNumerals('IV')) // 4
+console.log("[XX] - ", decoderRomanNumerals('XX')) // 20
+
+console.log("[LX] - ", decoderRomanNumerals('LX')) // 60
+console.log("[XL] - ", decoderRomanNumerals('XL')) // 40
+console.log("[ii] - ", decoderRomanNumerals('ii')) // ERROR 'Not roman numeral'
+
+console.log("[CCC] - ", decoderRomanNumerals('CCC')) // 300
+console.log("[D] - ", decoderRomanNumerals('D')) // 500
+console.log("[M] - ", decoderRomanNumerals('M')) // 1000
+
+console.log("[MCXIV] - ", decoderRomanNumerals('MCXIV')) // 1114
+console.log("[MMCMXCIII] - ", decoderRomanNumerals('MMCMXCIII')) // 2993
+
+
+
+a -> 1
+a -> 5 - a
+a -> 4
+
