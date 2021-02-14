@@ -37,34 +37,38 @@ function decoderRomanNumerals(romanNumeral) {
         }
     }
 
+    function changeLetterToValue() {
+        return romanSplit.map(letter => romanTable[letter])
+    }
+
     try {
         validation();
 
+        const numericValues = changeLetterToValue()
+
         let accumulator = 0
-        for (let position = 0; position < romanSplit.length; position++) {
-            const firstVale = romanTable[romanSplit[position]]
+        for (let position = 0; position < numericValues.length; position++) {
+            const currentValue = numericValues[position]
 
-            if (position === romanSplit.length - 1) {
-                accumulator += firstVale
-                break;
+            if (!numericValues[position + 1]) {
+                accumulator+= currentValue
+                continue;
             }
 
-            const secondVale = romanTable[romanSplit[position + 1]]
+            const nextValue = numericValues[position + 1]
 
-            if (firstVale === secondVale) {
-                accumulator += firstVale
+            if (currentValue === nextValue) {
+                accumulator+= currentValue
+                continue;
             }
-
-            if (firstVale < secondVale) {
-                accumulator -= secondVale - firstVale
+            if (currentValue < nextValue) {
+                accumulator-= currentValue
+                continue;
             }
-
-
-            if (firstVale > secondVale) {
-                accumulator = secondVale + firstVale
+            if (currentValue > nextValue) {
+                accumulator+= currentValue
+                continue;
             }
-
-
         }
         
         return accumulator;
@@ -74,24 +78,24 @@ function decoderRomanNumerals(romanNumeral) {
 
 }
 
+console.log("[II] - ", decoderRomanNumerals('I')) // 1
 console.log("[II] - ", decoderRomanNumerals('II')) // 2
 console.log("[IV] - ", decoderRomanNumerals('IV')) // 4
 console.log("[XX] - ", decoderRomanNumerals('XX')) // 20
-
 console.log("[LX] - ", decoderRomanNumerals('LX')) // 60
 console.log("[XL] - ", decoderRomanNumerals('XL')) // 40
 console.log("[ii] - ", decoderRomanNumerals('ii')) // ERROR 'Not roman numeral'
-
 console.log("[CCC] - ", decoderRomanNumerals('CCC')) // 300
 console.log("[D] - ", decoderRomanNumerals('D')) // 500
 console.log("[M] - ", decoderRomanNumerals('M')) // 1000
-
 console.log("[MCXIV] - ", decoderRomanNumerals('MCXIV')) // 1114
 console.log("[MMCMXCIII] - ", decoderRomanNumerals('MMCMXCIII')) // 2993
 
 
+/*
 
 a -> 1
 a -> 5 - a
 a -> 4
 
+*/
