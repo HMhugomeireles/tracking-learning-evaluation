@@ -46,29 +46,31 @@ function decoderRomanNumerals(romanNumeral) {
 
         const numericValues = changeLetterToValue()
 
+
+        if (numericValues.length === 1) {
+            return numericValues[0]
+        }
+
         let accumulator = 0
         for (let position = 0; position < numericValues.length; position++) {
             const currentValue = numericValues[position]
-
-            if (!numericValues[position + 1]) {
-                accumulator+= currentValue
-                continue;
-            }
-
             const nextValue = numericValues[position + 1]
 
-            if (currentValue === nextValue) {
+            if (!nextValue) {
                 accumulator+= currentValue
                 continue;
             }
+
             if (currentValue < nextValue) {
-                accumulator-= currentValue
+                const value = nextValue - currentValue;
+                accumulator += value;
+                position++;
                 continue;
-            }
-            if (currentValue > nextValue) {
-                accumulator+= currentValue
-                continue;
-            }
+            } 
+
+            accumulator += currentValue
+            
+
         }
         
         return accumulator;
@@ -78,7 +80,7 @@ function decoderRomanNumerals(romanNumeral) {
 
 }
 
-console.log("[II] - ", decoderRomanNumerals('I')) // 1
+console.log("[I] - ", decoderRomanNumerals('I')) // 1
 console.log("[II] - ", decoderRomanNumerals('II')) // 2
 console.log("[IV] - ", decoderRomanNumerals('IV')) // 4
 console.log("[XX] - ", decoderRomanNumerals('XX')) // 20
