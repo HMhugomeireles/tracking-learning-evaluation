@@ -5,7 +5,7 @@ export class Resume {
     private tech: string[];
     private questionOne: boolean;
     private questionTwo: boolean;
-    private state: "hr" | "se" | "answer";
+    private level: number;
     private approval: boolean;
 
     constructor(
@@ -21,6 +21,7 @@ export class Resume {
             this.tech = tech;
             this.questionOne = questionOne;
             this.questionTwo = questionTwo;
+            this.level = 0;
     }
 
     getName() {
@@ -43,5 +44,20 @@ export class Resume {
     }
     setApproval(value: boolean) {
         this.approval = value;
+    }
+    setLevel(value: number) {
+        this.level += value;
+    }
+    log() {
+        return {
+            name: this.name,
+            age: this.age,
+            experienceYears: this.experienceYears,
+            tech: this.tech,
+            questionOne: this.questionOne,
+            questionTwo: this.questionTwo,
+            level: this.level,
+            approval: this.approval
+        }
     }
 }
