@@ -5,6 +5,8 @@ export class Resume {
     private tech: string[];
     private questionOne: boolean;
     private questionTwo: boolean;
+    private state: "hr" | "se" | "answer";
+    private approval: boolean;
 
     constructor(
         name: string, 
@@ -38,5 +40,8 @@ export class Resume {
     }
     getQuestionTwo() {
         return this.questionTwo;
+    }
+    setApproval(value: boolean) {
+        this.approval = value;
     }
 }
