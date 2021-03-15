@@ -28,3 +28,6 @@ $ git branch -d branch-to-delete
 $ git branch --no-merged
 > Prune all branches which have been NOT merged
 $ git branch -D un-merged-branch-to-delete
+> Set config local(folder)
+git config user.name "your-user-name"
+git config user.email "your-email-addr"
