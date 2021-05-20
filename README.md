@@ -10,20 +10,22 @@ In where I will track the content I will learn and current learning.
 
 ### What I have learned
 
-- [ ] react-hooks-forms
+- [x] react-hooks-forms
     - [x] generate forms from json
     - [x] generate forms from json with flows
-- [ ] Testing
-    - [ ] Javascript testing - course Kent C. Dodds
+- [x] Testing
+    - [x] Javascript testing - course Kent C. Dodds
         - [x] testing fundamentals
-        - [ ] mocking fundamentals
-- [ ] Create nodejs start kit
+        - [x] mocking fundamentals
+- [X] Create nodejs start kit
     - [x] configurations ts
     - [x] configurations eslint
     - [x] configurations tslint
     - [x] configurations nodemon
     - [x] configurations prettier
     - [x] configurations jest
+- [ ] Typescript
+    - [ ] mixins 
 ---
 
 ### Back log 
@@ -36,7 +38,7 @@ In where I will track the content I will learn and current learning.
     - [ ] react-query
     - [ ] react-hooks-forms
 
-- [ ] Typescript
+
 - [ ] Nodejs
 
 - [ ] GraphQl
