@@ -25,7 +25,8 @@ In where I will track the content I will learn and current learning.
     - [x] configurations prettier
     - [x] configurations jest
 - [ ] Typescript
-    - [ ] mixins 
+    - [ ] types
+    - [x] mixins 
 ---
 
 ### Back log 
