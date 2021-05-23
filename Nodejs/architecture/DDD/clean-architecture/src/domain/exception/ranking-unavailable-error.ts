@@ -1,5 +1,5 @@
 export class RankingUnavailableError extends Error {
-  constructor () {
+  constructor() {
     super('Ranking unavailable');
     this.name = 'RankingUnavailableError';
   }

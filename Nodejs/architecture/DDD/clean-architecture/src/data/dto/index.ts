@@ -1,1 +1,1 @@
-export * from './ranking-score'
+export * from './ranking-score';

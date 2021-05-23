@@ -1,1 +1,1 @@
-export * from './rankin-score'
+export * from './rankin-score';

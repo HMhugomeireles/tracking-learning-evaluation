@@ -1,1 +1,1 @@
-export * from './ranking-unavailable-error'
+export * from './ranking-unavailable-error';

@@ -1,3 +1,3 @@
-import { RankingScore } from "@/domain/entities";
+import { RankingScore } from '@/domain/entities';
 
-export type RankingScoreModel = RankingScore
+export type RankingScoreModel = RankingScore;
