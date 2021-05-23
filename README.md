@@ -27,12 +27,14 @@ In where I will track the content I will learn and current learning.
 - [ ] Typescript
     - [ ] types
     - [x] mixins 
+- [ ] DDD architecture
+
 ---
 
 ### Back log 
 
 - [ ] Data structures
-- [ ] DDD architecture
+
 - [ ] react
     - [ ] redux
     - [ ] mobx
